@@ -1,6 +1,6 @@
 <?php
 /**
- * Problme 9
+ * Problem 9
  *
  * Special Pythagorean triplet
  * 
