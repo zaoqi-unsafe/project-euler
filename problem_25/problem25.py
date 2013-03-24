@@ -26,3 +26,19 @@
 #
 # What is the first term in the Fibonacci sequence to contain 1000 digits?
 #
+
+def fib():
+    a = 1
+    b = 1
+    c = 1
+    x = 1 
+    while len(str(a))<1000:
+          c = a + b
+          #print a
+          a = b 
+          b = c
+          x += 1
+    return x
+
+print fib()
+       
