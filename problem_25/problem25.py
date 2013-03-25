@@ -32,7 +32,7 @@ def fib():
     b = 1
     c = 1
     x = 1 
-    while len(str(a))<3:
+    while len(str(a))<1000:
           c = a + b
           a,b = b,c
           x += 1
