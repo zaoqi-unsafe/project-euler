@@ -32,13 +32,11 @@ def fib():
     b = 1
     c = 1
     x = 1 
-    while len(str(a))<1000:
+    while len(str(a))<3:
           c = a + b
-          #print a
-          a = b 
-          b = c
+          a,b = b,c
           x += 1
     return x
 
-print fib()
+print "F",fib()
        

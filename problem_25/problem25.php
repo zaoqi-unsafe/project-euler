@@ -1,3 +1,4 @@
+<?php
 /**
  * Project Euler
  *
@@ -27,3 +28,22 @@
  *
  * What is the first term in the Fibonacci sequence to contain 1000 digits?
  **/
+
+function fib() {
+
+     $a = 1;
+     $b = 1;
+     $aux = 1;
+     $contor = 1;
+        
+     while(strlen($a)<1000){
+           $sum = $a+$b;
+           $a = $b;
+           $b = $sum; 
+           $contor++;
+     }
+
+  return $contor;
+}
+echo "Term: F", fib();
+?>
