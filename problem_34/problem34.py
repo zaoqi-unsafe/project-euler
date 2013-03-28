@@ -11,6 +11,25 @@
 # Note: as !1 = 1 and !2 = 2 are not sums they are not included.
 
 
+def factorial(n):
+    if n == 0 or n == 1: 
+        return 1
+    else:
+        return n*factorial(n-1)
 
+def check_curious(n):
+    s = 0
+    while n > 0:
+        s += factorial(int(n%10))
+        n = n/10
+    return s  
 
+def curious():
+    c = 0
+    for i in range(3,100000):
+        if check_curious(i) == i:
+           print i
+           c += i 
+    return c
 
+print curious()
