@@ -10,6 +10,7 @@
    What is the largest prime factor of the number 600851475143 ? 
 */
 
+//solution 1
 function factorsPrimes( n ) {
 
          var i = 2;
@@ -27,7 +28,8 @@ function factorsPrimes( n ) {
                  f++;
 
                  n = parseInt(n/i)
-            }                 
+            }
+               
             if(f) out += i + "^" + f + " * "
 
             i++;
@@ -37,4 +39,35 @@ function factorsPrimes( n ) {
     return out;
 }
 
-console.log(factorsPrimes(600851475143))
+//solution 2
+function isPrime( n ) {
+
+     var prime = true, 
+         i;
+
+     if(n == 1) return false
+
+     for(i = 2; i < Math.floor(Math.sqrt( n )); i++) {
+             if( n % i == 0) {
+                 prime = false
+                 break 
+             }
+     }
+
+   return prime
+}
+
+function isFactorPrime( n, i ) {
+
+     return ( n % i == 0 )
+}
+
+function largestFactorPrime( n ) {
+         var i, largest = 2; 
+         for(i = 2; i <= n; i++ ) {
+             if(isPrime( i ) && isFactorPrime( i )) {
+                         largest = i
+             }
+         }
+     return largest;
+}
