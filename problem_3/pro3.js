@@ -13,11 +13,13 @@
 //solution 1
 function factorsPrimes( n ) {
 
-         var i = 2;
+         var i = 2,
 
-         var out = ""
+         out = "",
 
-         var f
+         f,
+
+         largest = 2;
          
          do {
 
@@ -32,11 +34,13 @@ function factorsPrimes( n ) {
                
             if(f) out += i + "^" + f + " * "
 
-            i++;
+            largest = i
 
+            i++;
+ 
          }while(!(n==1));
 
-    return out;
+    return [out, largest];
 }
 
 //solution 2
@@ -47,9 +51,12 @@ function isPrime( n ) {
 
      if(n == 1) return false
 
-     for(i = 2; i < Math.floor(Math.sqrt( n )); i++) {
+     for(i = 2; i <= Math.floor(Math.sqrt( n )); i++) {
+
              if( n % i == 0) {
+
                  prime = false
+
                  break 
              }
      }
@@ -63,11 +70,17 @@ function isFactorPrime( n, i ) {
 }
 
 function largestFactorPrime( n ) {
-         var i, largest = 2; 
-         for(i = 2; i <= n; i++ ) {
-             if(isPrime( i ) && isFactorPrime( i )) {
+
+         var i, 
+             largest = 2; 
+
+         for(i = 2; i < n; i++ ) {
+
+             if(isPrime( i ) && isFactorPrime( n, i )) {
+
                          largest = i
              }
          }
+
      return largest;
 }
