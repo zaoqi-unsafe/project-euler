@@ -10,77 +10,40 @@
    What is the largest prime factor of the number 600851475143 ? 
 */
 
-//solution 1
-function factorsPrimes( n ) {
+function smallest_factor(n) {
 
-         var i = 2,
+         i = 2
 
-         out = "",
+         while(i <= Math.sqrt(n) ) { 
 
-         f,
+          if( 0 == n%i ){
 
-         largest = 2;
-         
-         do {
+             return i
+          }
 
-            f = 0
+          i++
 
-            while(n % i == 0) {
-
-                 f++;
-
-                 n = parseInt(n/i)
-            }
-               
-            if(f) out += i + "^" + f + " * "
-
-            largest = i
-
-            i++;
- 
-         }while(!(n==1));
-
-    return [out, largest];
-}
-
-//solution 2
-function isPrime( n ) {
-
-     var prime = true, 
-         i;
-
-     if(n == 1) return false
-
-     for(i = 2; i <= Math.floor(Math.sqrt( n )); i++) {
-
-             if( n % i == 0) {
-
-                 prime = false
-
-                 break 
-             }
-     }
-
-   return prime
-}
-
-function isFactorPrime( n, i ) {
-
-     return ( n % i == 0 )
-}
-
-function largestFactorPrime( n ) {
-
-         var i, 
-             largest = 2; 
-
-         for(i = 2; i < n; i++ ) {
-
-             if(isPrime( i ) && isFactorPrime( n, i )) {
-
-                         largest = i
-             }
          }
 
-     return largest;
+         return n
 }
+
+function largest_factor(n) {
+
+         m = n
+
+         l = 1
+
+         while(m!=1) {
+
+               k = smallest_factor(m)  
+
+               m = m / k
+
+               l = k              
+         }
+
+  return l
+}
+
+alert(largest_factor(600851475143))
