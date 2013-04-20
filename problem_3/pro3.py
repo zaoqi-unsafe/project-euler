@@ -8,9 +8,9 @@ def smallest_factor(n):
     i = 2
     while i < n:
         if 0 == n % i:
-           return n
+           return i
         i = i + 1
-    return i
+    return n
 
 def largest_prime_factor(n):
 
