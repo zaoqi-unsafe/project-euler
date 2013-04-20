@@ -11,62 +11,45 @@
    What is the largest prime factor of the number 600851475143 ? 
 */
 
-function largestFactorPrime( $n ) {
+//solution 1
+function smallest_factor($n) {
 
          $i = 2;
 
-         $out = "";
+         while($i <= sqrt($n) ) { 
 
-         $largest = 2;
+          if( 0 == $n % $i ){
 
-         $fm = 0;
+             return $i;
+          }
 
-         do {
+          $i++;
 
-            $fm = 0;
+         }
 
-            while( ($n % $i) == 0 ) {
-
-                 $fm++;
-
-                 $n = intval($n / $i); 
-            }
-
-           if($fm) $out .= $i . "^". $fm . "*";
-
-           $largest = $i;
-
-           $i++;
-
-         } while($n != 1) ;
-
-   return array("factors" => $out, "largest" => ($i-1)); 
+         return $n;
 }
 
-function factores($n) {
+function largest_factor($n) {
 
-    $p = 2;
-$factores = array();
+         $m = $n;
 
-while ($p * $p <= $n) {
-if (fmod($n, $p) == 0) {
-$factores[] = $p;
-$n = $n / $p;
-} else {
-$p++;
+         $l = 1;
+
+         while($m!=1) {
+
+               $k = smallest_factor($m);  
+
+               $m = intval( $m / $k );
+
+               $l = $k;
+         }
+
+  return $l;
 }
-}
 
-if ($n != 1) {
-$factores[] = $n;
-}
+echo largest_factor(600851475143);
 
-return $factores;
-}
-//$out = largestFactorPrime( 600851475143 );
+//solution 2
 
-//echo $out["factors"];
-echo"<pre>";
-print_r( factores(1001) );
-echo"</pre>";
 ?>
