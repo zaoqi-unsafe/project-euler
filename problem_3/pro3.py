@@ -26,4 +26,5 @@ def largest_prime_factor(n):
              l = j
     return l
 
-print largest_prime_factor(10)
+print largest_prime_factor(600851475143)
+
