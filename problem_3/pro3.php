@@ -11,6 +11,8 @@
    What is the largest prime factor of the number 600851475143 ? 
 */
 
+$start = microtime(true);
+
 //solution 1
 function smallest_factor($n) {
 
@@ -48,8 +50,41 @@ function largest_factor($n) {
   return $l;
 }
 
-echo largest_factor(600851475143);
 
 //solution 2
+function largest($n) {
 
+     $p = 2;
+
+     $output = array();
+
+     while($p*$p <= $n) {
+
+           if( fmod($n, $p) == 0 ) {
+
+               $output[] = $p;
+
+               $n = $n / $p;  
+
+           } else {
+
+               $p++; 
+           }
+     } 
+     
+	if ($n != 1) {
+
+           $output[] = $n;
+      }
+
+   return $output;
+}
+
+echo largest_factor(13195);
+
+echo"<pre>";
+print_r(largest(600851475143));
+echo"</pre>";
+
+printf("Time spent: %.5f", microtime(true) - $start);
 ?>
