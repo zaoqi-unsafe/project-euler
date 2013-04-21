@@ -10,6 +10,7 @@
    What is the largest prime factor of the number 600851475143 ? 
 */
 
+//solution 1 rely on smallest prime factor
 function smallest_factor(n) {
 
          i = 2
@@ -46,4 +47,29 @@ function largest_factor(n) {
   return l
 }
 
-alert(largest_factor(600851475143))
+function largest_prime_factor(N) { 
+
+         var i = 2, 
+
+             factors = [],
+
+             k = -1; 
+    
+         while((i*i) <= N) { 
+       
+               if(0 == N%i) { 
+ 
+                  factors[++k] = i 
+
+                  N /= i 
+
+               } else { 
+
+                  i++ 
+               } 
+         } 
+
+         if( N != 1) factors[ ++k ] = N 
+
+   return factors[ factors.length - 1 ] 
+}
