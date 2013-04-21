@@ -35,7 +35,7 @@ function largest_factor(n) {
 
          l = 1
 
-         while(m!=1) {
+         while( m != 1 ) {
 
                k = smallest_factor(m)  
 
@@ -59,7 +59,7 @@ function largest_prime_factor(N) {
        
                if(0 == N%i) { 
  
-                  factors[++k] = i 
+                  factors[ ++k ] = i 
 
                   N /= i 
 
