@@ -47,6 +47,7 @@ function largest_factor(n) {
   return l
 }
 
+//solution 2
 function largest_prime_factor(N) { 
 
          var i = 2, 
