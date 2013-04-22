@@ -3,22 +3,10 @@
 ;   Problem 3
 ;   The prime factors of 13195 are 5, 7, 13, and 29.
 ;   What is the largest prime factor of the number 600851475143 ?
-
+;   https://github.com/marxist/project-euler/blob/master/003.lisp
+;   https://github.com/brandonhsiao/lisp-pe/blob/master/problem3.lisp
 
 ;solution 1
-(defun smallest-factor (n)
-       
-  
-)
-
-https://github.com/marxist/project-euler/blob/master/003.lisp
-https://github.com/brandonhsiao/lisp-pe/blob/master/problem3.lisp
-
-
-
-
-
-;solution 2
 (defun smallest_factor (n)
 
        (labels ((rec (i) 
@@ -43,4 +31,19 @@ https://github.com/brandonhsiao/lisp-pe/blob/master/problem3.lisp
  
           (rec n 1) 
        ) 
+)
+
+;solution 2
+
+(defun largest (N)
+     (setf i 2)
+     (prog (fac)
+           start
+           (if (<= (* i i) N) 
+               (if (= (REM N i) 0) (and (setf N (/ N i)) (setf fac (cons i fac)) ) (setf i (+ i 1))
+               ) 
+               (if (/= N 1) (and (setf fac (cons N fac)) (return (last (reverse fac))) ))
+           )
+           (go start) 
+     ) 
 )
